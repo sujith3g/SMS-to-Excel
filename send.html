@@ -1,9 +1,29 @@
 <html>
-<form action="example.php" method="post">
-	Message to be send must be less than 140 characters:
-<input type="text" name="message" length="140"/><br/>
-File name of the excel file (including .xls extension)
-<input type="text" name="file" /><br/>
-<input type="submit" text="Send group SMS"/>
-</form>
+
+<body>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript">
+	//alert("hello");
+	$(document).ready(function(){
+		$('#msg_txt_area').keyup(function(){
+			//(140-1);
+			$('#count').html((140-$('#msg_txt_area').val().length));
+			//$('#count').html((140-$('#msg_txt_area').val().length))) ;
+		});
+	});
+	</script>
+	<center>
+		<br/>
+	<form action="example.php" method="post">
+		<br/>
+		File name of the excel file (including .xls extension)
+		<input type="text" name="file" /><br/>
+
+			Message to be send must be less than 140 characters:
+		<textarea type="text" name="message" id="msg_txt_area" ></textarea><b id="count">140</b><br/>
+		
+				<input type="submit" value="Send group SMS"/>
+	</form>
+	</center>
+</body>
 </html>
