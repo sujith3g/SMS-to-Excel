@@ -5,18 +5,14 @@ public function SMS($mob_no, $content = 'No Content ...') {
 	if($mob_no > 999999999 AND $mob_no < 10000000000) {
 		
 		$FullOn = array(
-			'L A' => 'MobileNoLogin=9037223519&LoginPassword=SUITHG',
-			'L B' => 'MobileNoLogin=9037223519&LoginPassword=SUITHG'
-			);//'Tejas A' => 'MobileNoLogin=8089324091&LoginPassword=4344',	'V A' => 'MobileNoLogin=7736476946&LoginPassword=84763'
+			'L A' => 'MobileNoLogin=9037223519&LoginPassword=YourFullonPassword',
+			'L B' => 'MobileNoLogin=YourFriendsFullonUsername&LoginPassword=YourFriendsFullonPassword'
+			);
 		
 		$account = array_rand($FullOn);
 		$out=$this->post("http://www.fullonsms.com/login.php", $FullOn[$account]);
 		$out=$this->post("http://www.fullonsms.com/home.php", "MobileNos=".$mob_no."&Message=".urlencode(substr($content, 0, 140)));
-		//$out=$this->post("http://hedcet.com/sujith/sms/send.php?m_num=9037223519&msg=test_msg", 1==1);
-		///$out=$this->post("http://www.fullonsms.com/home.php", "MobileNos=".$mob_no."&Message=".urlencode(substr($content, 0, 140)));
-		
-		//$this->db->insert('sms_log', array('account' => $account, 'mob_no' => $mob_no, 'content' => $content));
-		
+				
 		sleep(8);
 		
 	}
