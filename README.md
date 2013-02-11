@@ -1,10 +1,9 @@
-
 ===================================================================
 This a PHP Script to send Free Bulk SMS using FullonSMS account :) 
 ====================================================================
 Instructions
 ============
-1) Place the mobile numbers in an column named 'mobile_number' or 'mob_number'.
+1) Place the mobile numbers in a column named 'mobile_number' or 'mob_number' in an excel file.
 
 2) Now move the excel file to the doc/ folder.
 
