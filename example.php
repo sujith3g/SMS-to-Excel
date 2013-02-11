@@ -4,7 +4,9 @@ require_once 'excel_reader2.php';
 require_once 'sms_class.php';
 $msg = $_POST['message'];
 $file_name = $_POST['file'];
-$data = new Spreadsheet_Excel_Reader("doc/".$file_name);
+if($file_name!="")
+	$data = new Spreadsheet_Excel_Reader("doc/".$file_name);
+else echo "Enter a file name..<br/>";
 ?>
 <html>
 <head>
@@ -39,6 +41,7 @@ table.excel tbody td {
 
 <body>
 <?php //echo $data->dump(true,true); 
+if($msg != "" && $file_name != ""){
 	for($sheet_count=0;$data->rowcount($sheet_count)!=0;$sheet_count++);
 	echo "Sheet count is:".$sheet_count;
 	for($i=0;$i<$sheet_count;$i++){
@@ -69,6 +72,10 @@ table.excel tbody td {
 
 		}
 	}
+}
+else {
+	echo "Enter the file name and message...";
+}
 ?>
 </body>
 </html>
